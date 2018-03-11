@@ -1,18 +1,45 @@
 LoginForm:
-
+    
 
 <LoginForm@BoxLayout>:
+    orientation: "vertical"
     
     BoxLayout:
         orientation: "vertical"
-        height: "150dp"
-        size_hint_y: None 
+         
+        canvas:
+            Color:
+                rgb: 127,255,212
+            Rectangle:
+                size: self.size
         
+        Label:
+            text:"SIGAA.UFPI-APP"
+            color: (18,163,241, 1)
+            bold: True
+            font_size: "40sp"
+        
+        Label:
+            text: "Usuário"
+            color: (255,0,0,1)
                        
         TextInput:
+            multiline: False
+            size_hint_y: .5
+        
+        Label:
+            text: "Senha"
+            color: (255,0,0,1)
         
         TextInput:
+            password: True
+            multiline: False
+            size_hint_y: .5
+            
         
-        Button:
-            text: "Logar-se"
+        AnchorLayout:
+            Button:
+                size_hint_x: .5
+                size_hint_y: .5
+                text: "Logar-se"
          
