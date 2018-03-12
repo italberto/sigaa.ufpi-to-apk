@@ -1,8 +1,10 @@
-LoginForm:
-    
+<Gerenciador>:
+    DoLogin:
+            
 
-<LoginForm@BoxLayout>:
-    orientation: "vertical"
+<DoLogin>:
+    usuario_input: usuario
+    senha_input: senha
     
     BoxLayout:
         orientation: "vertical"
@@ -22,10 +24,12 @@ LoginForm:
         Label:
             text: "Usuário"
             color: (255,0,0,1)
+            
                        
         TextInput:
             multiline: False
             size_hint_y: .5
+            id: usuario
         
         Label:
             text: "Senha"
@@ -35,6 +39,7 @@ LoginForm:
             password: True
             multiline: False
             size_hint_y: .5
+            id: senha
             
         
         AnchorLayout:
@@ -42,4 +47,5 @@ LoginForm:
                 size_hint_x: .5
                 size_hint_y: .5
                 text: "Logar-se"
+                on_press: root.logar_se()
          
