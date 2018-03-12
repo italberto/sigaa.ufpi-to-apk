@@ -47,5 +47,30 @@
                 size_hint_x: .5
                 size_hint_y: .5
                 text: "Logar-se"
-                on_press: root.logar_se()
-         
+                on_release: root.logar_se()
+
+<PopErrorConection>:
+    size_hint_y: None
+    height: "100dp"
+    width: "50dp"
+    title: "Não foi possivel fazer login, verifique a sua internet ou a disponibilidade do SIGAA."
+    
+    AnchorLayout:
+        Button:
+            size_hint_x: .5
+            size_hint_y: 1
+            text: 'OK, Entendi'
+            on_release: root.dismiss()
+
+<PopSenhaErrada>:
+    size_hint_y: None
+    height: "100dp"
+    width: "50dp"
+    title: "Usuário ou Senhas errados."
+    
+    AnchorLayout:
+        Button:
+            size_hint_x: .5
+            size_hint_y: 1
+            text: 'OK, Entendi'
+            on_release: root.dismiss()

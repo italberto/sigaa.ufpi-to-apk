@@ -7,7 +7,7 @@ def pegar_id_nao_autenticado():
     
     with requests.Session() as sessao:
     
-        resposta = sessao.get("http://sigaa.ufpi.br/sigaa/verTelaLogin.do", timeout=5)
+        resposta = sessao.get("http://sigaa.ufpi.br/sigaa/verTelaLogin.do", timeout=10)
         
         b_session_id = resposta.text
         inicio = b_session_id.find("jsessionid=") + 11
@@ -50,12 +50,12 @@ def login(session_id, usuario, senha):
 
     data = 'width=1366&height=768&urlRedirect=&acao=&acessibilidade=&user.login=' + usuario + '&user.senha=' + senha
         
-    response = requests.post('http://sigaa.ufpi.br/sigaa/logar.do;jsessionid='+session_id , headers=headers, params=params, cookies=cookies, data=data, verify=False, timeout=5)
+    response = requests.post('http://sigaa.ufpi.br/sigaa/logar.do;jsessionid='+session_id , headers=headers, params=params, cookies=cookies, data=data, verify=False, timeout=20)
     
     print("logado")
 
 
-    return session_id
+    return session_id, response
     
     
 def pegar_id_autenticado(usuario, senha):
