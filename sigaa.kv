@@ -1,5 +1,8 @@
 <Gerenciador>:
     DoLogin:
+        name: "login"
+    Menu:
+        name: "menu"
             
 
 <DoLogin>:
@@ -48,6 +51,39 @@
                 size_hint_y: .5
                 text: "Logar-se"
                 on_release: root.logar_se()
+
+
+
+<Menu>:
+    BoxLayout:
+        orientation: "vertical"
+        
+        BoxLayout:
+            BoxLayout:
+                Label:
+                    text: "Foto"
+            BoxLayout:
+                Label:
+                    text: "Dados"
+    
+        BoxLayout:
+            orientation: "vertical"
+
+            canvas:
+                Color:
+                    rgb: 127,255,212
+                Rectangle:
+                    size: self.size
+                    
+            AnchorLayout:
+                Button:
+                    text: "Notas"
+                    size_hint_y: .2
+                    size_hint_x: .2
+    
+
+
+
 
 <PopErrorConection>:
     size_hint_y: None
