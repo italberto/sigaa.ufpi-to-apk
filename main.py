@@ -7,12 +7,23 @@ from login import pegar_id_autenticado
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.popup import Popup
 
+from extra_dados import *
+
 import requests
 
 class Gerenciador(ScreenManager):
     pass
 
 class Menu(Screen):
+
+    def __init__(self, **kwargs):
+        super(Menu, self).__init__(**kwargs)
+    
+    print(DoLogin.resposta.text)
+    
+    
+
+    
     pass
 
 class PopErrorConection(Popup):
@@ -24,7 +35,7 @@ class PopSenhaErrada(Popup):
     pass
 
 class DoLogin(Screen):
-    
+
     usuario_input = ObjectProperty()
     senha_input = ObjectProperty()
     
@@ -49,10 +60,15 @@ class DoLogin(Screen):
                 PopSenhaErrada().open()
                 print('Usuário e/ou senha inválidos')
                 
+                
+                
                 return False, None
             else:
                 #caso a senha esteja correta chamamos a tela de menu
                 self.parent.current = 'menu'
+                ##############################################
+                self.nome = pegar_nome(self.resposta.text)
+                #############################################3
                 return True, self.session_id
 
         except (requests.exceptions.Timeout, requests.exceptions.ConnectionError):
